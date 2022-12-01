@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from UniversityApp import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    # Вызовет views.index при открытии главной страницы сайта
+    path('', views.index, name="home"),
+    # Вызовет views.about при /about
+    path('about', views.about, name="home"),
 ]
