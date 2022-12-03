@@ -10,10 +10,10 @@ class University(models.Model):
         return self.name
 
 class Student(models.Model):
-    full_name = models.IntegerField()
+    full_name = models.CharField(max_length=50)
     birthday = models.DateField()
     university = models.ForeignKey(University, on_delete=models.PROTECT, null=True)
-    receipt_date = models.DateField()
+    receipt_year = models.IntegerField()
 
     def __str__(self):
         return self.name

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Student{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/crud_app/add_student">
+    {% csrf_token %}
+    <div class="container">
+        <div class="col-12">
+        <h3>Enter Details</h3>
+        </div>
+
+        <div class="mb-3">
+            <label>Full Name:</label>
+            {{ form.full_name }}
+        </div>
+        <div class="mb-3">
+            <label>Birthday:</label>
+            {{ form.birthday }}
+        </div>
+        <div class="mb-3">
+            <label>University:</label>
+            {{ form.university }}
+        </div>
+        <div class="mb-3">
+            <label>Receipt Year:</label>
+            {{ form.receipt_year }}
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock content %}

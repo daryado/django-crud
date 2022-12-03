@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Universities Records{% endblock title %}
+
+{% block content %}
+ <div class="col-md-12">
+        <span><a href="/crud_app/add_university" class="btn btn-primary">Add New University</a></span>
+        <div class="table-responsive">
+        <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+        <thead>
+            <th><input type="checkbox" id="checkall" /></th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Abbreviation</th>
+            <th>Date</th>
+        </thead>
+        <tbody>
+        {% for university in all_universities %}
+            <tr>
+            <td><input type="checkbox" class="checkthis" /></td>
+            <td>{{ university.id }}</td>
+            <td>{{ university.title }}</td>
+            <td>{{ university.abbrivation }}</td>
+            <td>{{ university.date }}</td>
+            <td><a href="/crud_app/universities/edit/{{ university.id }}" class="btn btn-primary">Edit</a></td>
+            <td><a href="/crud_app/universities/delete/{{ university.id }}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+        </div>
+    </div>
+{% endblock content %}
