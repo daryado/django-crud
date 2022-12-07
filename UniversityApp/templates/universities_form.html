@@ -1,32 +1,18 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
 {% block title %}Add New University{% endblock title %}
 
 {% block content %}
 <div class="col-md-12">
-    <form method="POST" class="post-form" action="/crud_app/university/edit" >
-    {% csrf_token %}
-    <div class="container">
-        <div class="col-12">
-        <h3>Enter Details</h3>
-        </div>
-
-        <div class="mb-3">
-            <label>Title:</label>
-            {{ form.title }}
-        </div>
-        <div class="mb-3">
-            <label>Abbreviation:</label>
-            {{ form.abbreviation }}
-        </div>
-        <div class="mb-3">
-            <label>Date:</label>
-            {{ form.date }}
-        </div>
-        <div class="mb-3">
+    <form method="POST" class="post-form" action="/crud_app/universities/edit" >
+        <h3>Enter university details</h3>
+        {% csrf_token %}
+        {{ form | crispy }}
+        <div class="mt-5">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-    </div>
     </form>
 </div>
 {% endblock content %}

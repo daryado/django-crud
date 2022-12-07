@@ -11,12 +11,7 @@ urlpatterns = [
 
     path('universities', views.universities_list),
     path('universities/edit', views.add_university),
-    path('universities/edit/<int:id>', views.university_edit),
-    path('universities/delete/<int:id>', views.university_delete),
+    path('universities/edit/<int:id>', views.edit_university),
+    path('universities/delete/<int:id>', views.delete_university),
 
-    # При использовании параметров строки запроса, маршрутизация не изменяется
-    #path('user/', views.user),
-
-    #path('', views.index, name="home"),
-    #path('about', views.about, name="home"),
 ]
